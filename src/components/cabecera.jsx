@@ -10,7 +10,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 import Navbar from "../navbar";
 
-import Login from "../auth/login";
+import Login from "../Auth/Login";
 
 
 import monito from "./layaout/img/monito.jpg";
