@@ -1,4 +1,4 @@
-import './App.css';
+// App styles handled via Tailwind utilities in components
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { CartProvider } from './contexts/CartContext';

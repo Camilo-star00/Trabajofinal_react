@@ -27,17 +27,16 @@ export function AuthProvider({ children }) {
         window.localStorage.setItem(CLAVE_USUARIO, JSON.stringify(usuario));
       }
     } catch (e) {
-      // Evitar que errores de LocalStorage rompan la app en entornos restringidos.
-      // console.error('Auth localstorage error', e);
+      // Evita errores si LocalStorage está restringido.
     }
   }, [usuario]);
 
-  // useCallback evita recrear funciones en cada render y ayuda a la optimización.
+  // Guardamos nombre, email y el avatar que proviene del Login
   const login = useCallback((data) => {
-    // Almacenar sólo la información necesaria del usuario.
     const u = {
-      nombre: data.email?.split('@')[0] || 'Usuario',
+      nombre: data.nombre || data.email?.split('@')[0] || 'Usuario',
       email: data.email,
+      avatar: data.avatar || null,
     };
     setUsuario(u);
   }, []);

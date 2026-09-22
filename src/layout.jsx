@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import Cabecera from "./components/layaout/cabecera";
+
+import Cabecera from "./components/cabecera";
 import CarritoPanel from './components/carrito/CarritoPanel';
 
 function Layout({ children, pagina, setPagina }) {

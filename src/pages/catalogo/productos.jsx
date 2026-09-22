@@ -8,10 +8,16 @@ function Productos() {
   const elementosPorPagina = 8;
   const { personajes, cargando, error, totalPages } = useCharacters(paginaActual, elementosPorPagina);
 
-  // Ajusta la página si el usuario intenta pasar del total disponible.
+  // Forzamos el límite a máximo 5 páginas
+  const maxPaginas = 5;
+  const totalPaginasEfectivo = Math.min(totalPages || 1, maxPaginas);
+
+  // Ajusta la página si el usuario está en una posición mayor al límite de 5
   useEffect(() => {
-    if (paginaActual > totalPages) setPaginaActual(totalPages);
-  }, [totalPages, paginaActual]);
+    if (paginaActual > totalPaginasEfectivo) {
+      setPaginaActual(totalPaginasEfectivo);
+    }
+  }, [totalPaginasEfectivo, paginaActual]);
 
   return (
     <section className="min-h-screen bg-[#1a1c1e] px-6 py-10 text-[#f5e7d3]">
@@ -42,8 +48,9 @@ function Productos() {
               ))}
             </div>
 
-            {totalPages > 1 && (
+            {totalPaginasEfectivo > 1 && (
               <div className="mt-8 flex items-center justify-center gap-3">
+                {/* Botón Anterior */}
                 <button
                   type="button"
                   onClick={() => setPaginaActual((actual) => Math.max(1, actual - 1))}
@@ -54,14 +61,16 @@ function Productos() {
                   Anterior
                 </button>
 
+                {/* Indicador de página (Tope máximo en 5) */}
                 <span className="rounded-lg bg-orange-400 px-3 py-2 text-sm font-semibold text-slate-950">
-                  {paginaActual} / {totalPages}
+                  {paginaActual} / {totalPaginasEfectivo}
                 </span>
 
+                {/* Botón Siguiente */}
                 <button
                   type="button"
-                  onClick={() => setPaginaActual((actual) => Math.min(totalPages, actual + 1))}
-                  disabled={paginaActual === totalPages}
+                  onClick={() => setPaginaActual((actual) => Math.min(totalPaginasEfectivo, actual + 1))}
+                  disabled={paginaActual === totalPaginasEfectivo}
                   className="inline-flex items-center gap-2 rounded-lg border border-orange-400/30 bg-[#2b261d] px-3 py-2 text-sm font-medium text-[#f3dcc0] transition hover:border-orange-300 hover:text-orange-100 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   Siguiente
