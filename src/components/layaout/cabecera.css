@@ -1,0 +1,282 @@
+/* =========================================
+   CABECERA
+========================================= */
+
+.cabecera {
+    width: 100%;
+    height: 85px;
+
+    display: flex;
+    align-items: center;
+
+    background: #10182f;
+
+    padding: 0 35px;
+
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 1000;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.cabecera > a {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+.cabecera-logo {
+    width: 65px;
+    height: 65px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 3px solid white;
+
+    display: block;
+
+    transition: 0.3s ease;
+}
+
+.cabecera-logo:hover {
+    transform: scale(1.08);
+
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.cabecera nav {
+    flex: 1;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 30px;
+}
+
+
+/* =========================================
+   MENU UL
+========================================= */
+
+.cabecera nav .menu {
+    display: flex !important;
+
+    flex-direction: row !important;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+    width: auto;
+}
+
+
+/* =========================================
+   ELEMENTOS LI
+========================================= */
+
+.cabecera nav .menu li {
+    display: flex !important;
+
+    align-items: center;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.cabecera nav .menu li a {
+    display: inline-block;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    padding: 10px 5px;
+
+    position: relative;
+
+    transition: 0.25s ease;
+}
+
+.cabecera nav .menu li a:hover {
+    color: #8ab4ff;
+
+    transform: translateY(-2px);
+}
+
+
+/* Línea debajo del link */
+
+.cabecera nav .menu li a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+
+    bottom: 3px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #8ab4ff;
+
+    transition: width 0.25s ease;
+}
+
+.cabecera nav .menu li a:hover::after {
+    width: calc(100% - 10px);
+}
+
+
+/* =========================================
+   BOTÓN LOGIN
+========================================= */
+
+.btn-login {
+    flex-shrink: 0;
+
+    border: none;
+
+    background: white;
+
+    color: #10182f;
+
+    padding: 11px 20px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    transition: 0.25s ease;
+}
+
+.btn-login:hover {
+    background: #8ab4ff;
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cabecera {
+        height: auto;
+
+        min-height: 75px;
+
+        padding: 12px 20px;
+
+        flex-wrap: wrap;
+    }
+
+    .cabecera-logo {
+        width: 55px;
+        height: 55px;
+    }
+
+    .cabecera nav {
+        order: 3;
+
+        width: 100%;
+
+        flex: none;
+
+        margin: 10px 0 0;
+    }
+
+    .cabecera nav .menu {
+        gap: 20px;
+
+        flex-wrap: wrap;
+    }
+
+    .cabecera nav .menu li a {
+        font-size: 14px;
+    }
+
+    .btn-login {
+        padding: 9px 14px;
+
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 450px) {
+
+    .cabecera nav .menu {
+        gap: 12px;
+    }
+
+    .cabecera nav .menu li a {
+        font-size: 13px;
+    }
+
+    .btn-login {
+        padding: 8px 11px;
+
+        font-size: 13px;
+    }
+}
