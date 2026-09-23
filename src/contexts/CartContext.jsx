@@ -83,6 +83,7 @@ export function CartProvider({ children }) {
     );
   }, []);
 
+  
   const eliminarDelCarrito = useCallback((id) => {
     setCarrito((prev) => prev.filter((item) => item.id !== id));
   }, []);
@@ -90,6 +91,7 @@ export function CartProvider({ children }) {
   const vaciarCarrito = useCallback(() => {
     // Se actualiza el estado local y el efecto anterior se encargará de limpiar
     // la clave en LocalStorage (o almacenarla) según corresponda.
+    // carga un nuevo arreglo ,osea reemplaza el que ya existe y lo cambia por un arreglo vacio
     setCarrito([]);
   }, []);
 
