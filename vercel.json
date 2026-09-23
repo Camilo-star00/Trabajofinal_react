@@ -1,0 +1,5 @@
+{
+    "rawrites":[
+    {"source":"/(.*)","destination":"/index.html"}
+    ]
+}
