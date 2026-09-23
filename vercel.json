@@ -1,5 +1,5 @@
 {
-    "rawrites":[
+    "rewrites":[
     {"source":"/(.*)","destination":"/index.html"}
     ]
 }
